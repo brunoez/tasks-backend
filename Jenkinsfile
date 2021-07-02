@@ -16,8 +16,8 @@ pipeline {
                 scannerHome = tool 'SONAR_SCANNER'
             }
             steps {
-               withSonarQubeEnv('SONAR_LOCAL') {
-                   sh "${scannerHome}/bin/sonar-scanner -e -Dsonar.projectKey=DeployBack -Dsonar.host.url=http://192.168.0.103:9000 -Dsonar.login=ae01c5345ebaa484cb017eb78285ce66d545ce04 -Dsonar.java.binaries=target -Dsonar.coverage.exclusions=**/.mvn/**,**/src/test/**,**/model/**,**Application.java"
+                withSonarQubeEnv('SONAR_LOCAL') {
+                    sh "${scannerHome}/bin/sonar-scanner -e -Dsonar.projectKey=DeployBack -Dsonar.host.url=http://192.168.0.103:9000 -Dsonar.login=ae01c5345ebaa484cb017eb78285ce66d545ce04 -Dsonar.java.binaries=target -Dsonar.coverage.exclusions=**/.mvn/**,**/src/test/**,**/model/**,**Application.java"
                 }
             }
         }
