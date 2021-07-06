@@ -61,8 +61,15 @@ pipeline {
         }
         stage ('Deploy Prod') {
             steps {
-		sh 'whoami'
                 sh 'docker-compose up -d'
+            }
+        }
+        stage ('Health Check') {
+            steps {
+                sleep(120)
+                dir('functions-test') {
+                    sh 'mvn verify -Dskip.surefire.tests'
+                }
             }
         }
     }
