@@ -61,6 +61,7 @@ pipeline {
         }
         stage ('Deploy Prod') {
             steps {
+		sh 'whoami'
                 sh 'docker-compose up -d'
             }
         }
